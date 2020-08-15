@@ -6,3 +6,12 @@ const user = new User({
 })
 
 console.log(user.get('name'))
+
+const newUserProps = {
+    name: 'newname',
+    // age: 999
+}
+
+user.set(newUserProps)
+
+console.log(user.get('name'))
