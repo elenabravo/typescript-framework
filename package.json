@@ -1,8 +1,15 @@
-{ 
+{
   "name": "typescript-framework",
   "author": "Elena Bravo",
   "version": "0.1.0",
   "devDependencies": {
     "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "start:db": "json-server -w db.json",
+    "start:pacel": "parcel index.html"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }
