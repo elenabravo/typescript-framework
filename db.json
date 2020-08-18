@@ -4,11 +4,6 @@
       "id": 1,
       "name": "newname",
       "age": 21
-    },
-    {
-      "name": "new record",
-      "age": 0,
-      "id": 2
     }
   ]
 }
