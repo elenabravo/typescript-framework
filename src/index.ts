@@ -5,13 +5,9 @@ const user = new User({
     age: 20
 })
 
-console.log(user.get('name'))
+user.on('change', () => { console.log('Change #1')})
+user.on('change', () => { console.log('Change #2')})
+user.on('save', () => { console.log('Save was triggered')})
 
-const newUserProps = {
-    name: 'newname',
-    // age: 999
-}
-
-user.set(newUserProps)
-
-console.log(user.get('name'))
+user.trigger('change')
+user.trigger('save')
