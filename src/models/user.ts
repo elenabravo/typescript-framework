@@ -1,16 +1,17 @@
-import axios, { AxiosResponse } from 'axios'
 import { Eventing } from './Eventing'
+import { Sync } from './Sync'
 
-const SERVER_URL =  'http://localhost:3000'
-
-interface UserProps {
+export interface UserProps {
     id?: number,
     name?: string,
     age?: number
 }
 
+const ROOT_URL =  'http://localhost:3000/users'
+
 export class User {
-    private events: Eventing = new Eventing()
+    public events: Eventing = new Eventing()
+    public sync: Sync<UserProps> = new Sync<UserProps>(ROOT_URL) 
 
     constructor(private data: UserProps) {}
     
@@ -22,19 +23,4 @@ export class User {
         Object.assign(this.data, update)
     }
 
-    fetch(): void {
-        axios.get(`${SERVER_URL}/users/${this.get('id')}`)
-        .then((response: AxiosResponse): void => {
-            this.set(response.data)
-        })
-    }
-
-    save(): void {
-    const id = this.get('id')
-        if(id) {
-            axios.put(`${SERVER_URL}/users/${id}`, this.data)
-        } else {
-            axios.post(`${SERVER_URL}/users`, this.data)
-        }
-    }
 }
