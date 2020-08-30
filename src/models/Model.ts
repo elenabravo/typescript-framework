@@ -20,7 +20,7 @@ interface HasId  {
     id?: number
 }
 
-export default class Model<T extends HasId> {
+export class Model<T extends HasId> {
     constructor(
         private attributes: ModelAttributes<T>,
         private events: Events,
