@@ -26,7 +26,8 @@ export class User extends Model<UserProps> {
         return new Collection<User, UserProps>(ROOT_URL, deserialize)
     }
 
-    isAdminUser(): boolean {
-        return this.get('id') === 1
+    setRandomAge(): void {
+        const age = Math.round(Math.random() * 100)
+        this.set({ age })
     }
 }
