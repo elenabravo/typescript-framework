@@ -49,10 +49,10 @@ export class Model<T extends HasId> {
     }
 
     save(): void {
-       this.sync.save(this.attributes.getAll()).then((response: AxiosResponse): void => {
+        this.sync.save(this.attributes.getAll()).then((response: AxiosResponse): void => {
             this.trigger('save')
-       }).catch(() => {
+        }).catch(() => {
             this.trigger('error')
-       })
+        })
     }
 }
